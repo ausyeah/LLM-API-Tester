@@ -1,0 +1,62 @@
+# ===== Python =====
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# ===== 打包产物（PyInstaller）=====
+build/
+build-*/
+dist/
+dist-*/
+*.spec
+# 注意：build.bat 会重新生成 LLM-API-Tester.spec
+
+# ===== 虚拟环境 =====
+venv/
+.venv/
+env/
+ENV/
+
+# ===== 凭证 / 密钥 / 本地配置 =====
+*.key
+*.pem
+*.pfx
+*.p12
+.env
+.env.*
+config.json
+config.local.json
+secrets.*
+
+# ===== 日志 / 临时 / 诊断输出 =====
+*.log
+diagnostic.*.txt
+stderr.txt
+stdout.txt
+
+# ===== 求职用材料（本地保留，不入库）=====
+LLM-API-Tester-项目介绍.md
+LLM-API-Tester-项目介绍.html
+LLM-API-Tester-项目介绍.pdf
+LLM-API-Tester-项目介绍.docx
+
+# ===== 内部开发计划文档 =====
+docs/superpowers/
+
+# ===== IDE / 编辑器 =====
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# ===== 测试截图产物（每次运行生成，不入库）=====
+tests/*_preview.png
+tests/*.grab.png
+
+# ===== Git 自身 =====
+*.orig
+*.rej
