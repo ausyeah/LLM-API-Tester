@@ -57,6 +57,9 @@ Thumbs.db
 tests/*_preview.png
 tests/*.grab.png
 
+# ===== README 截图脚本的 APPDATA 沙箱（每次运行生成）=====
+tests/_shotdata/
+
 # ===== Git 自身 =====
 *.orig
 *.rej

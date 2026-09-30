@@ -16,6 +16,28 @@ Windows 桌面工具。管理多个 LLM 供应商（Base URL + API Key + 协议�
 
 ---
 
+## 界面
+
+> 截图由 `tests/make_readme_shots.py` 离屏渲染生成，界面数据为**脱敏的代表性样例**，
+> 不含任何真实 Key、真实站点或主机信息。
+
+### 主界面：供应商 × 模型 × 首字延迟
+
+<p align="center">
+  <img src="docs/screenshots/01-main.png" alt="LLM API Tester 主界面：左侧供应商列表，右侧 Base URL / API Key / 协议，下方模型列表带模态与上下文徽章、首字延迟结果" width="100%">
+</p>
+
+注意 **DeepSeek-V3.2** 那一行：请求的是 `deepseek-v3.2`，上游返回 `deepseek-v3.1`，
+结果标成**琥珀色警示**并附 `· 上游:deepseek-v3.1`。这就是[模型一致性检测](#模型一致性检测)。
+
+### 测速历史：各模型平均首字 + 明细表
+
+<p align="center">
+  <img src="docs/screenshots/02-history.png" alt="测速历史面板：条形图看各模型平均首字延迟，下方明细表含 TTFT / TTFB / 来源，可导出 CSV" width="100%">
+</p>
+
+---
+
 ## 解决什么问题
 
 手上一堆 OpenAI 兼容的中转站 / 网关 / 本地服务时，真正花时间的是这几件事：
@@ -134,10 +156,22 @@ tests/
   smoke_real.py       真实端点联调（Key 走环境变量）
   smoke_taskman.py    批量 + 取消管线冒烟
   ui_grab.py          离屏截图自检
+  make_readme_shots.py 生成 README 截图（脱敏样例数据）
 tools/make_icon.py    重新生成应用图标
 ```
 
 约 3900 行 Python（含测试）。
+
+### 重新生成 README 截图
+
+```bash
+python tests/make_readme_shots.py    # 输出到 docs/screenshots/
+```
+
+脚本用独立的 `APPDATA` 沙箱，**不会碰你的真实配置**；数据是脱敏的代表性样例。
+
+> 注：Qt 的 `offscreen` 插件不加载系统字体库，中文会渲染成豆腐块，
+> 所以脚本会把系统中文字体手动注册进 font database 后再渲染。
 
 ## 运行
 
